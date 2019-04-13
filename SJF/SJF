@@ -1,0 +1,45 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int p,c=0,min,t=0,x;
+	cout<<"Enter the number of Processes";
+	cin>>p;
+	int b[p],a[p];
+	cout<<"\nEnter the burst time for each Process\n";
+	for(int i=0;i<p;i++)
+	{
+		cout<<"Burst Time For Process "<<i+1<<endl;
+		cin>>b[i];
+	}
+	cout<<"\nEnter Arrival Time for each Process\n";
+	for(int i=0;i<p;i++)
+	{
+		cout<<"Arrival Time For Process "<<i+1<<endl;
+		cin>>a[i];
+	}
+	int n[p];
+	while(c!=p)
+	{
+	   for(int i=0;i<p;i++)
+	   {
+	   	if(min>b[i])
+	   	{
+		min=b[i];
+		x=a[i];
+		t=i;
+	   	}
+	   }
+	   b[t]=100;
+	   c=c+1;
+	   n[c-1]=t+1;
+	   min=100;
+	   
+	}
+	cout<<"\nProcess Sequence is : \n";
+	for(int i=0;i<p;i++)
+	{
+		cout<<"P "<<n[i]<<endl;
+	}
+	
+}
